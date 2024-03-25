@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Generator</title>
+</head>
+<body>
+    <h1>Name Generator</h1>
+    <form method="POST">
+        <label for="input_words">Enter words separated by spaces:</label>
+        <input type="text" id="input_words" name="input_words" required>
+        <button type="submit">Generate Names</button>
+    </form>
+    {% if closest_male_name %}
+        <h2>Closest Male Name to Input:</h2>
+        <p>{{ closest_male_name }}</p>
+    {% endif %}
+    {% if closest_female_name %}
+        <h2>Closest Female Name to Input:</h2>
+        <p>{{ closest_female_name }}</p>
+    {% endif %}
+    {% if regenerate_button %}
+        <form method="POST">
+            <input type="hidden" name="regenerate" value="true">
+            <button type="submit">Regenerate</button>
+        </form>
+    {% endif %}
+</body>
+</html>
